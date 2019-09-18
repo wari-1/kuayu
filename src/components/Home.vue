@@ -142,19 +142,7 @@ export default {
         direction: "horizontal", // 水平切换选项
         loop: true
       },
-      swiperOption2: {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        width: 200,
-        height: 140,
-        direction: "vertical", // 水平切换选项
-        loop: true, // 循环模式选项
-        // 如果需要分页器
-        // 如果需要前进后退按钮
-        slidesPerView: 2
-      },
+
       coinCount: 0,
       rank: 0
     };
