@@ -120,6 +120,7 @@
 </template>
 
 <script>
+import "../swiper/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import axios from "axios";
 export default {
