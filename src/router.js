@@ -4,7 +4,6 @@ import Home from "./components/Home.vue";
 import Project from "./components/Project.vue";
 import Navi from "./components/Navi.vue";
 import Projectindex from "./components/Projectindex.vue";
-
 import Wxarticle from "./components/Wxarticle.vue";
 import Tree from "./components/Tree.vue";
 import Collect from "./components/Collect.vue";
