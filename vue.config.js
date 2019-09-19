@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "/vue-kuayu/" : "/",
-  runtimeCompiler: true,
+  // runtimeCompiler: true,
   // publicPath: "/vue-kuayu/",
   //配置代理服务器
   // devServer: {
