@@ -3,22 +3,22 @@ module.exports = {
   runtimeCompiler: true,
   // publicPath: "/vue-kuayu/",
   //配置代理服务器
-  devServer: {
-    // open: process.platform === 'darwin',
-    // host: 'localhost',
-    port: 8080,
-    // open: true, //配置自动启动浏览器
-    proxy: {
-      "/api": {
-        target: "https://www.wanandroid.com", //对应自己的接口
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          "^/api": ""
-        }
-      }
-    }
-  },
+  // devServer: {
+  //   // open: process.platform === 'darwin',
+  //   // host: 'localhost',
+  //   port: 8080,
+  //   // open: true, //配置自动启动浏览器
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://www.wanandroid.com", //对应自己的接口
+  //       changeOrigin: true,
+  //       ws: true,
+  //       pathRewrite: {
+  //         "^/api": ""
+  //       }
+  //     }
+  //   }
+  // },
   // devServer: {
   //   proxy: {
   //     "/api": {
