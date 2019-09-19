@@ -97,7 +97,7 @@ export default {
       handler() {
         const path = this.$route.path.replace("/wxarticle/list/", "");
         const fullPath = path.slice(0, 3);
-        axios.get(`/api/wxarticle/list/${fullPath}/1/json`).then(res => {
+        axios.get(`/wxarticle/list/${fullPath}/1/json`).then(res => {
           this.articles = res.data.data.datas.map(item => {
             return { ...item, curPage: res.data.data.curPage, collect: false };
           });
@@ -106,7 +106,7 @@ export default {
     }
   },
   created() {
-    axios.get("/api/wxarticle/chapters/json").then(res => {
+    axios.get("/wxarticle/chapters/json").then(res => {
       this.wxlists = res.data.data;
       console.log(this.$route);
     });
@@ -121,11 +121,11 @@ export default {
   methods: {
     collect(ele) {
       if (!ele.collect) {
-        axios.post(`/api/lg/collect/${ele.id}/json`).then(res => {
+        axios.post(`/lg/collect/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = true;
         });
       } else {
-        axios.post(`/api/lg/uncollect_originId/${ele.id}/json`).then(res => {
+        axios.post(`/lg/uncollect_originId/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = false;
         });
       }
@@ -138,17 +138,15 @@ export default {
         if (Math.random() > 0.5) {
           // 如果有新数据
           this.a++;
-          axios
-            .get(`/api/wxarticle/list/${fullPath}/${this.a}/json`)
-            .then(res => {
-              this.newPage = res.data.data.datas.map(item => {
-                return {
-                  ...item,
-                  curPage: res.data.data.curPage - 1,
-                  collect: false
-                };
-              });
+          axios.get(`/wxarticle/list/${fullPath}/${this.a}/json`).then(res => {
+            this.newPage = res.data.data.datas.map(item => {
+              return {
+                ...item,
+                curPage: res.data.data.curPage - 1,
+                collect: false
+              };
             });
+          });
           this.articles = this.articles.concat(this.newPage);
         } else {
           // 如果没有新数据

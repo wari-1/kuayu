@@ -65,7 +65,7 @@ export default {
             ? 0
             : Number(this.$route.fullPath.replace("/lg/collect/", "")) - 1;
 
-        axios.get(`/api/lg/collect/list/${path}/json`).then(res => {
+        axios.get(`/lg/collect/list/${path}/json`).then(res => {
           console.log(res.data);
           this.articles = res.data.data.datas;
           this.page = res.data.data.curPage;
@@ -81,7 +81,7 @@ export default {
       console.log(Number(this.$route.fullPath.replace("/lg/collect/", "")) - 1);
     },
     cancelCollect(id) {
-      axios.post(`/api/lg/uncollect/${id}/json`);
+      axios.post(`/lg/uncollect/${id}/json`);
       this.articles = this.articles.filter(item => item.id != id);
     }
   }

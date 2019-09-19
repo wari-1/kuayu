@@ -52,7 +52,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/navi/json").then(res => {
+    axios.get("/navi/json").then(res => {
       this.navis = res.data.data;
     });
   }

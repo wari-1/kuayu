@@ -149,11 +149,11 @@ export default {
   },
 
   created() {
-    axios.get("/api/banner/json").then(res => {
+    axios.get("/banner/json").then(res => {
       // console.log(res.data.data);
       this.banners = res.data.data;
     });
-    axios.get("/api/lg/coin/userinfo/json").then(res => {
+    axios.get("/lg/coin/userinfo/json").then(res => {
       this.coinCount = res.data.data.coinCount;
       this.rank = res.data.data.rank;
     });

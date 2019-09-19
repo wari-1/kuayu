@@ -59,13 +59,11 @@ export default {
       immediate: true,
       handler() {
         console.log(this.$route);
-        axios
-          .get(`/api/coin/rank/${this.$route.params.page}/json`)
-          .then(res => {
-            console.log(res.data);
-            this.topics = res.data.data.datas;
-            this.total = res.data.data.total;
-          });
+        axios.get(`/coin/rank/${this.$route.params.page}/json`).then(res => {
+          console.log(res.data);
+          this.topics = res.data.data.datas;
+          this.total = res.data.data.total;
+        });
       }
     }
   },

@@ -92,7 +92,7 @@ export default {
       handler() {
         const query = this.$route.query;
         const cid = query.cid ? query.cid : 60;
-        axios.get("/api/tree/json").then(res => {
+        axios.get("/tree/json").then(res => {
           this.grades1 = res.data.data;
           this.grades2 = this.grades1.map(item => {
             return {
@@ -105,7 +105,7 @@ export default {
           ).children;
           console.log(this.grades3);
         });
-        axios.get(`/api/article/list/0/json?cid=${cid}`).then(res => {
+        axios.get(`/article/list/0/json?cid=${cid}`).then(res => {
           this.articles = res.data.data.datas.map(item => {
             return {
               ...item,
@@ -120,11 +120,11 @@ export default {
   methods: {
     collect(ele) {
       if (!ele.collect) {
-        axios.post(`/api/lg/collect/${ele.id}/json`).then(res => {
+        axios.post(`/lg/collect/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = true;
         });
       } else {
-        axios.post(`/api/lg/uncollect_originId/${ele.id}/json`).then(res => {
+        axios.post(`/lg/uncollect_originId/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = false;
         });
       }
@@ -135,7 +135,7 @@ export default {
         if (Math.random() > 0.5) {
           // 如果有新数据
           this.a++;
-          axios.get(`/api/article/list/${this.a}/json`).then(res => {
+          axios.get(`/article/list/${this.a}/json`).then(res => {
             // this.newPage = res.data.data.datas;
             this.newPage = res.data.data.datas.map(item => {
               return {

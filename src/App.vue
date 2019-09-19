@@ -115,7 +115,7 @@ export default {
   methods: {
     login() {
       axios
-        .post("/api/user/login?username=15033539702&password=wmdlxg0904984805")
+        .post("/user/login?username=15033539702&password=wmdlxg0904984805")
         .then(res => {
           console.log(res);
           this.usernameLogin = res.data.data.username;
@@ -124,21 +124,21 @@ export default {
     search() {
       if (this.value.trim()) {
         console.log(111);
-        axios.get(`/api/article/query/0/json?k=${value}`).then(res => {
+        axios.get(`/article/query/0/json?k=${value}`).then(res => {
           console.log(222);
           console.log(res.data);
         });
       }
     },
     tuichu() {
-      axios.get("/api/user/logout/json").then(res => {
+      axios.get("/user/logout/json").then(res => {
         console.log(res);
       });
     }
   },
   created() {
     axios
-      .post("/api/user/login?username=15033539702&password=wmdlxg0904984805")
+      .post("/user/login?username=15033539702&password=wmdlxg0904984805")
       .then(res => {
         // console.log(res);
         this.usernameLogin = res.data.data.username;

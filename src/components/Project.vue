@@ -146,7 +146,7 @@ export default {
     "$route.query.cid": {
       immediate: true,
       handler() {
-        axios.get("/api/project/tree/json").then(res => {
+        axios.get("/project/tree/json").then(res => {
           this.navis = res.data.data;
           // console.log(res.data.data);
           this.cids = res.data.data.map(item => item.id);
@@ -166,7 +166,7 @@ export default {
           const tasks = [];
           console.log(cishu);
           for (let i = 0; i < cishu; i++) {
-            const promise = axios.get(`/api/project/list/${i}/json?cid=${cid}`);
+            const promise = axios.get(`/project/list/${i}/json?cid=${cid}`);
             // .then(res => {
             //   this.boxs = this.boxs.concat(res.data.data.datas);
             // });
@@ -236,11 +236,11 @@ export default {
   methods: {
     collect(ele) {
       if (!ele.collect) {
-        axios.post(`/api/lg/collect/${ele.id}/json`).then(res => {
+        axios.post(`/lg/collect/${ele.id}/json`).then(res => {
           this.boxs.find(item => item.id == ele.id).collect = true;
         });
       } else {
-        axios.post(`/api/lg/uncollect_originId/${ele.id}/json`).then(res => {
+        axios.post(`/lg/uncollect_originId/${ele.id}/json`).then(res => {
           this.boxs.find(item => item.id == ele.id).collect = false;
         });
       }

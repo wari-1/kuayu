@@ -74,14 +74,14 @@ export default {
     }
   },
   created() {
-    axios.get("/api/article/listproject/0/json").then(res => {
+    axios.get("/article/listproject/0/json").then(res => {
       // console.log(this.$router);
       console.log(res.data.data.datas);
       this.articles = res.data.data.datas.map(item => {
         return { ...item, curPage: res.data.data.curPage - 1, collect: false };
       });
     });
-    axios.get("/api/article/top/json").then(res => {
+    axios.get("/article/top/json").then(res => {
       // console.log(this.$router);
       // console.log(res.data);
       this.toparticles = res.data.data;
@@ -90,25 +90,25 @@ export default {
   methods: {
     collect(ele) {
       if (!ele.collect && this.toparticles.find(item => item.id == ele.id)) {
-        axios.post(`/api/lg/collect/${ele.id}/json`).then(res => {
+        axios.post(`/lg/collect/${ele.id}/json`).then(res => {
           this.toparticles.find(item => item.id == ele.id).collect = true;
         });
       } else if (
         !ele.collect &&
         this.articles.find(item => item.id == ele.id)
       ) {
-        axios.post(`/api/lg/collect/${ele.id}/json`).then(res => {
+        axios.post(`/lg/collect/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = true;
         });
       } else if (
         ele.collect &&
         this.toparticles.find(item => item.id == ele.id)
       ) {
-        axios.post(`/api/lg/uncollect_originId/${ele.id}/json`).then(res => {
+        axios.post(`/lg/uncollect_originId/${ele.id}/json`).then(res => {
           this.toparticles.find(item => item.id == ele.id).collect = false;
         });
       } else {
-        axios.post(`/api/lg/uncollect_originId/${ele.id}/json`).then(res => {
+        axios.post(`/lg/uncollect_originId/${ele.id}/json`).then(res => {
           this.articles.find(item => item.id == ele.id).collect = false;
         });
       }
@@ -119,7 +119,7 @@ export default {
         if (Math.random() > 0.5) {
           // 如果有新数据
           this.a++;
-          axios.get(`/api/article/listproject/${this.a}/json`).then(res => {
+          axios.get(`/article/listproject/${this.a}/json`).then(res => {
             // this.newPage = res.data.data.datas;
             this.newPage = res.data.data.datas.map(item => {
               return {

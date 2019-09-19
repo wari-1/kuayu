@@ -28,7 +28,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api//lg/coin/list/1/json").then(res => {
+    axios.get("//lg/coin/list/1/json").then(res => {
       this.jifenList = res.data.data.datas;
     });
   }
