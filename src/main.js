@@ -6,7 +6,7 @@ import "./cube-ui";
 import { Pagination, Button, Dialog, Tooltip } from "element-ui";
 import axios from "axios";
 axios.defaults.timeout = 5000; // 请求超时
-axios.defaults.baseURL = "https://api.www.wanandroid.com";
+axios.defaults.baseURL = "https://.www.wanandroid.com";
 Vue.config.productionTip = false;
 Vue.use(Pagination);
 Vue.use(Button);
